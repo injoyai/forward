@@ -8,17 +8,6 @@ import (
 	"github.com/injoyai/tool/forward"
 )
 
-/*
-
-{
-"port": 8079,
-"dir": "./data/forward.db",
-"auth": false,
-"password": ""
-}
-
-*/
-
 func main() {
 	logs.Err(forward.Run(
 		cfg.GetInt("port", 8079),
