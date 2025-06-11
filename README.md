@@ -4,7 +4,7 @@
 
 ## 如何使用
 * Windows桌面端
-  [点击下载](https://github.com/injoyai/forward/releases/latest/download/forward.exe)
+  [点击下载](https://github.com/injoyai/forward/releases/latest/download/forward-win-amd64.exe)
 * Docker部署
   ```shell
     docker run -d \
