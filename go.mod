@@ -4,12 +4,11 @@ go 1.20
 
 require (
 	github.com/injoyai/base v1.2.7
-	github.com/injoyai/conv v1.2.3
+	github.com/injoyai/conv v1.2.5
 	github.com/injoyai/frame v0.0.4
 	github.com/injoyai/goutil v1.2.6
-	github.com/injoyai/logs v1.0.9
 	github.com/injoyai/lorca v0.0.0-20241219020631-030018723d82
-	github.com/injoyai/proxy v1.0.17
+	github.com/injoyai/proxy v1.0.18
 )
 
 require (
@@ -34,6 +33,7 @@ require (
 	github.com/gofiber/utils/v2 v2.0.0-beta.7 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.6.0 // indirect
+	github.com/injoyai/logs v1.0.9 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect

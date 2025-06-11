@@ -6,17 +6,19 @@ import (
 	"github.com/injoyai/frame/fiber"
 	"github.com/injoyai/goutil/database/sqlite"
 	"github.com/injoyai/goutil/database/xorms"
-	"github.com/injoyai/goutil/oss"
-	"github.com/injoyai/logs"
 )
 
 //go:embed index.html
 var index []byte
 
-func Run(port int) error {
+func Run(port int, filename string, use ...fiber.Middle) error {
+	if err := initDB(filename); err != nil {
+		return err
+	}
 
 	s := fiber.Default()
 	s.SetPort(port)
+	s.Use(use...)
 	s.GET("/", func(c fiber.Ctx) { c.Html200(index) })
 	s.Group("/api", func(g fiber.Grouper) {
 		g.GET("/forward/all", GetForwardAll)      //列表
@@ -35,26 +37,33 @@ var (
 	Cache = maps.NewGeneric[int64, *Forward]()
 )
 
-func init() {
+func initDB(filename string) error {
 	var err error
-	DB, err = sqlite.NewXorm(oss.UserInjoyDir("/forward/database/forward.db"))
-	logs.PanicErr(err)
+	DB, err = sqlite.NewXorm(filename)
+	if err != nil {
+		return err
+	}
 
 	err = DB.Sync(&Forward{})
-	logs.PanicErr(err)
+	if err != nil {
+		return err
+	}
 
 	all := []*Forward(nil)
 	err = DB.Find(&all)
-	logs.PanicErr(err)
+	if err != nil {
+		return err
+	}
 
 	for _, f := range all {
 		f.init()
 		Cache.Set(f.ID, f)
 	}
+	return nil
 }
 
 func GetForwardAll(c fiber.Ctx) {
-	ls := []*Forward(nil)
+	ls := []*Forward{}
 	co, err := DB.Desc("ID").FindAndCount(&ls)
 	c.CheckErr(err)
 	for _, v := range ls {
