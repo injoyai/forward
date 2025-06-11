@@ -11,7 +11,7 @@ import (
 /*
 
 {
-"port": 8080,
+"port": 8079,
 "dir": "./data/forward.db",
 "auth": false,
 "password": ""
