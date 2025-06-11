@@ -4,6 +4,7 @@ import (
 	"github.com/injoyai/conv/cfg"
 	"github.com/injoyai/frame/fiber"
 	"github.com/injoyai/goutil/g"
+	"github.com/injoyai/logs"
 	"github.com/injoyai/tool/forward"
 )
 
@@ -19,11 +20,11 @@ import (
 */
 
 func main() {
-	forward.Run(
-		cfg.GetInt("port", 8080),
+	logs.Err(forward.Run(
+		cfg.GetInt("port", 8079),
 		cfg.GetString("dir", "./data/forward.db"),
 		auth,
-	)
+	))
 }
 
 var token string
