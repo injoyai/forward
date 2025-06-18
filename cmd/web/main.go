@@ -11,7 +11,7 @@ import (
 func main() {
 	logs.Err(forward.Run(
 		cfg.GetInt("port", 8079),
-		cfg.GetString("dir", "./data/forward.db"),
+		cfg.GetString("database", "./data/forward.db"),
 		auth,
 	))
 }
