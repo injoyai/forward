@@ -36,7 +36,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
         }
 
         /* 主卡片样式 */
@@ -98,7 +98,7 @@
 
         .forward-info-grid {
             display: grid;
-            grid-template-columns: 1.2fr 2fr minmax(0, 4fr) auto;
+            grid-template-columns: 2fr 3fr 120px auto;
             align-items: center;
             gap: 1rem;
             width: 100%;
@@ -331,16 +331,7 @@
             min-width: 0;
         }
 
-        .error-message {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            cursor: help;
-            color: var(--danger-color);
-            font-size: 0.85rem;
-            flex: 1;
-            min-width: 0;
-        }
+
         
         .empty-state {
             text-align: center;
@@ -465,12 +456,7 @@
                 if (forward.running) {
                     statusBadge = `<span class="status-badge status-active">运行中</span>`;
                 } else {
-                    statusBadge = `
-                        <span class="status-badge status-error">错误</span>
-                        <span class="error-message" title="${forward.error || '未知错误'}">
-                             <i class="fas fa-exclamation-circle"></i> ${forward.error || '未知错误'}
-                        </span>
-                    `;
+                    statusBadge = `<span class="status-badge status-error" title="${forward.error || '未知错误'}" style="cursor: help;">错误 <i class="fas fa-exclamation-circle"></i></span>`;
                 }
             } else {
                 statusBadge = `<span class="status-badge status-stopped">已停止</span>`;
