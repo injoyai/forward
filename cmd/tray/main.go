@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/injoyai/forward"
 	"github.com/injoyai/goutil/oss"
 	"github.com/injoyai/goutil/oss/tray"
 	"github.com/injoyai/lorca"
-	"github.com/injoyai/tool/forward"
 )
 
 func main() {

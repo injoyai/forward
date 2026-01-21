@@ -1,6 +1,6 @@
-module github.com/injoyai/tool/forward
+module github.com/injoyai/forward
 
-go 1.20
+go 1.23
 
 require (
 	github.com/injoyai/base v1.2.7

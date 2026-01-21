@@ -1,5 +1,5 @@
 #管理界面的端口
-port: 8079
+port: 8078
 
 #数据存储位置
 database: ./data/forward.db

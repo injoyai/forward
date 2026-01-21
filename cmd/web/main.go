@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/injoyai/conv/cfg"
+	"github.com/injoyai/forward"
 	"github.com/injoyai/frame/fiber"
 	"github.com/injoyai/goutil/g"
 	"github.com/injoyai/logs"
-	"github.com/injoyai/tool/forward"
 )
 
 func main() {

@@ -2,6 +2,7 @@ package forward
 
 import (
 	_ "embed"
+
 	"github.com/injoyai/base/maps"
 	"github.com/injoyai/frame/fiber"
 	"github.com/injoyai/goutil/database/sqlite"
